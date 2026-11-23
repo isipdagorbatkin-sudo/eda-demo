@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Учебное приложение доставки еды на Spring Cloud">
+    <title>Еда рядом</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="header">
+    <a class="brand" href="#top" aria-label="Еда рядом, на главную">
+        <span class="brand-mark">Е</span>
+        <span>Еда рядом</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+        <a href="#restaurants">Рестораны</a>
+        <a class="cart-link" href="#cart">Корзина <span id="cart-count">0</span></a>
+    </nav>
+</header>
+
+<main id="top">
+    <section class="hero">
+        <div class="hero-content">
+            <p class="eyebrow">Учебная демоверсия</p>
+            <h1>Выберите блюда.<br><span>Остальное сделаем мы.</span></h1>
+            <p class="hero-text">Выберите ресторан, посмотрите меню и добавьте блюда в корзину.</p>
+            <a class="primary-button" href="#restaurants">Выбрать ресторан</a>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+            <div class="plate">
+                <div class="pizza">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="catalog-section" id="restaurants">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">Меню</p>
+                <h2>Рестораны рядом</h2>
+            </div>
+            <button class="text-button" id="refresh-button" type="button">Обновить</button>
+        </div>
+
+        <div class="restaurant-list" id="restaurant-list" aria-live="polite">
+            <div class="skeleton wide"></div>
+            <div class="skeleton wide"></div>
+        </div>
+
+        <div class="catalog-layout">
+            <div>
+                <div class="menu-heading">
+                    <div>
+                        <h3 id="menu-title">Выберите ресторан</h3>
+                        <p id="menu-subtitle">После выбора здесь появятся доступные блюда</p>
+                    </div>
+                </div>
+                <div class="menu-grid" id="menu-grid">
+                    <div class="empty-state">
+                        <span>🍽️</span>
+                        <strong>Меню пока не открыто</strong>
+                        <p>Нажмите на карточку ресторана выше.</p>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="cart" id="cart">
+                <div class="cart-header">
+                    <div>
+                        <p class="eyebrow">Ваш заказ</p>
+                        <h3>Корзина</h3>
+                    </div>
+                    <button class="icon-button" id="clear-cart" type="button" aria-label="Очистить корзину">×</button>
+                </div>
+                <div class="cart-items" id="cart-items">
+                    <div class="cart-empty">Добавьте блюда из меню</div>
+                </div>
+                <div class="cart-total">
+                    <span>Итого</span>
+                    <strong id="cart-total">0 ₽</strong>
+                </div>
+                <p class="cart-note">В демоверсии можно собрать корзину. Оформление заказа отключено.</p>
+            </aside>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div>
+        <strong>Еда рядом</strong>
+        <p>Учебный проект на Spring Boot и Spring Cloud</p>
+    </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="./app.js" defer></script>
+</body>
+</html>
